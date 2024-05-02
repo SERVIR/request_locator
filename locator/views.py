@@ -21,11 +21,12 @@ def get_client_ip(request):
 @csrf_exempt
 def get_country_code(request):
     ip_address = request.GET.get('ip_address')
-    if ip_address:
-        country_code = g.country_code(ip_address)
-    else:
-        country_code = g.country_code(get_client_ip(request))
     try:
+        if ip_address:
+            country_code = g.country_code(ip_address)
+        else:
+            country_code = g.country_code(get_client_ip(request))
+
         return JsonResponse({"country_code": country_code})
     except AddressNotFoundError:
         return JsonResponse({"country_code": "ZZ"})
@@ -34,11 +35,12 @@ def get_country_code(request):
 @csrf_exempt
 def get_country(request):
     ip_address = request.GET.get('ip_address')
-    if ip_address:
-        country = g.country(ip_address)
-    else:
-        country = g.country(get_client_ip(request))
     try:
+        if ip_address:
+            country = g.country(ip_address)
+        else:
+            country = g.country(get_client_ip(request))
+
         return JsonResponse({"country": country})
     except AddressNotFoundError:
         return JsonResponse({"country": "Not Found"})
@@ -47,11 +49,11 @@ def get_country(request):
 @csrf_exempt
 def get_city(request):
     ip_address = request.GET.get('ip_address')
-    if ip_address:
-        city = g.city(ip_address)
-    else:
-        city = g.city(get_client_ip(request))
     try:
+        if ip_address:
+            city = g.city(ip_address)
+        else:
+            city = g.city(get_client_ip(request))
         return JsonResponse({"city": city})
     except AddressNotFoundError:
         return JsonResponse({"city": "Not Found"})
