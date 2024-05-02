@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "request_locator.wsgi.application"
-GEOIP_PATH = "/cserv2/django_app/ClimateSERV2/climateserv2/geolite"
+GEOIP_PATH = "/servir_apps/geolite/"
 
 
 # Database
