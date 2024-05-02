@@ -29,3 +29,16 @@ def get_country_code(request):
         return JsonResponse({"country_code": country_code})
     except AddressNotFoundError:
         return JsonResponse({"country_code": "ZZ"})
+    
+    
+@csrf_exempt
+def get_country(request):
+    ip_address = request.GET.get('ip_address')
+    if ip_address:
+        country = g.country(ip_address)
+    else:
+        country = g.country(get_client_ip(request))
+    try:
+        return JsonResponse({"country": country})
+    except AddressNotFoundError:
+        return JsonResponse({"country": "Not Found"})

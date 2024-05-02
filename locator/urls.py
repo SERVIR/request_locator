@@ -7,7 +7,7 @@ import locator.views as views
 
 urlpatterns = [
     path('get_country_code/', views.get_country_code, name='get_country_code'),
-    path('get_country_code/', views.get_country_code, name='get_country_code'),
+    path('get_country/', views.get_country, name='get_country'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
