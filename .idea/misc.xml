@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="request_locator" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="request_locator" project-jdk-type="Python SDK" />
+</project>
