@@ -43,7 +43,7 @@ def get_country(request):
 
         return JsonResponse({"country": country})
     except AddressNotFoundError:
-        return JsonResponse({"country": "Not Found"})
+        return JsonResponse({"country": {"country_code": None, "country_name": None}})
 
 
 @csrf_exempt
@@ -56,4 +56,4 @@ def get_city(request):
             city = g.city(get_client_ip(request))
         return JsonResponse({"city": city})
     except AddressNotFoundError:
-        return JsonResponse({"city": "Not Found"})
+        return JsonResponse({"city": {"city": None, "continent_code": None, "continent_name": None, "country_code": None, "country_name": None, "dma_code": None, "is_in_european_union": None, "latitude": None, "longitude": None, "postal_code": None, "region": None, "time_zone": None}})

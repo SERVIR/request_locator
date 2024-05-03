@@ -9,5 +9,5 @@ node_modules
 media
 *logfile.txt
 *.pyc
-data.jsongit add .
+data.json
 logfile
